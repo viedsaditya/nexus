@@ -86,6 +86,38 @@ input {
     background-color: #fff;
     text-align: center;
 }
+/* Border antar kolom, tanpa border kiri & kanan tabel */
+#dataTable th, #dataTable td {
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+}
+#dataTable th:first-child, #dataTable td:first-child {
+    border-left: none !important;
+}
+#dataTable th:last-child, #dataTable td:last-child {
+    border-right: none !important;
+}
+
+/* Border antar kolom DataTable, tanpa border kiri & kanan, dan border atas */
+#dataTable th, #dataTable td {
+    border-right: 1px solid #dee2e6 !important;
+    border-bottom: 1px solid #dee2e6 !important;
+    border-top: 1px solid #dee2e6 !important;
+    border-left: none !important;
+}
+#dataTable th:last-child, #dataTable td:last-child {
+    border-right: none !important;
+}
+#dataTable tr {
+    border-left: none !important;
+    border-right: none !important;
+}
+#dataTable {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+}
 </style>
 
 <!-- <a href="<?= base_url('airlines/input'); ?>" class="btn btn-warning btn-sm btn-icon-split">
@@ -122,8 +154,8 @@ input {
                         background-size: 100% 100%;
                         background-position: center;
                         background-repeat: no-repeat;
-                        height: 55px;
-                        width: 110px;
+                        height: 50px;
+                        width: 130px;
                         border-radius: 10px;
                         display: flex;
                         align-items: center;
@@ -178,14 +210,13 @@ input {
             </div>
         </div> -->
     </div>
-
     <div class="form-group ml-auto">
         <label class="control-label mr-1" for="date_a"></label>
-        <input type="date" class="form-control form-control-sm" name="date_a" id="date_a" required>
+        <input type="date" class="form-control form-control-sm" name="date_a" id="date_a" required value="<?php echo isset($_POST['date_a']) ? $_POST['date_a'] : (isset($date_a) ? $date_a : ''); ?>">
     </div>
     <div class="form-group ml-2">
         <label class="control-label mr-1" for="date_a"></label>
-        <input type="date" class="form-control form-control-sm" name="date_b" id="date_b" required>
+        <input type="date" class="form-control form-control-sm" name="date_b" id="date_b" required value="<?php echo isset($_POST['date_b']) ? $_POST['date_b'] : (isset($date_b) ? $date_b : ''); ?>">
     </div>
     
     <div class="form-group ml-2">
@@ -242,7 +273,7 @@ input {
 
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover " id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th class="text-center">#</th>

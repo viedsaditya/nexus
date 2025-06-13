@@ -41,7 +41,7 @@ class Departure extends CI_Controller
 
         $id_sts = $this->session->userdata('id_sts');
         $data = array(
-            'title' => $da != $db ? 'Departure Flight Schedule '.$da.$cdt.$db:'Departure Flight Schedule '.$da,
+            'title' => $da != $db ? 'Departure Flight Schedule ':'Departure Flight Schedule ',
             'departure' => $this->m_departure->tampilfilter($date_a, $date_b, $id_sts), 
             'aircraft' => $this->m_aircraft->tampil(),
             'total' => $this->m_departure->tampiltotalfilter($date_a, $date_b, $id_sts),

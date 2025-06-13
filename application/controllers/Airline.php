@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 // load package composer
-require 'vendor/autoload.php';
+require_once(APPPATH . '../vendor/autoload.php');
 // deklarasi package yang ingin digunakan
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;

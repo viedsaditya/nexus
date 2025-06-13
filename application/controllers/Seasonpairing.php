@@ -41,6 +41,8 @@ class Seasonpairing extends CI_Controller
             'title' => $da != $db ? 'Pairing Flight Schedule':'Pairing Flight Schedule',
             'seasonpairing' => $this->m_seasonpairing->tampilfilter($date_a, $date_b, $id_sts), 
             'aircraft' => $this->m_aircraft->tampil(), 
+            'date_a' => $date_a,
+            'date_b' => $date_b,
             'total' => $this->m_seasonpairing->tampiltotalfilter($date_a, $date_b, $id_sts),
             'isi' => 'seasonpairing/v_dataseasonpairing'
         );

@@ -21,6 +21,38 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination .page-item.active .
 input { 
     text-align: center; 
 }
+/* Border antar kolom, tanpa border kiri & kanan tabel */
+#dataTable th, #dataTable td {
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+}
+#dataTable th:first-child, #dataTable td:first-child {
+    border-left: none !important;
+}
+#dataTable th:last-child, #dataTable td:last-child {
+    border-right: none !important;
+}
+
+/* Border antar kolom DataTable, tanpa border kiri & kanan, dan border atas */
+#dataTable th, #dataTable td {
+    border-right: 1px solid #dee2e6 !important;
+    border-bottom: 1px solid #dee2e6 !important;
+    border-top: 1px solid #dee2e6 !important;
+    border-left: none !important;
+}
+#dataTable th:last-child, #dataTable td:last-child {
+    border-right: none !important;
+}
+#dataTable tr {
+    border-left: none !important;
+    border-right: none !important;
+}
+#dataTable {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+}
 </style>
 <!-- <a href="<?= base_url('station/input'); ?>" class="btn btn-warning btn-sm btn-icon-split">
     <span class="icon text-white-50">
@@ -55,7 +87,7 @@ input {
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -66,7 +98,7 @@ input {
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="white-space: nowrap;">
                     <?php
                     $no = 1;
                     foreach ($station as $key => $value) { ?>
@@ -76,9 +108,9 @@ input {
                             <td><?= $value->name_station ?></td>
                             <td><?= $value->country ?></td>
                             <?php if ($value->is_active == 1) { ?>
-                                <td class="bg-success" style='text-align:center; color:#fff; padding: 40px 0;'><div class="nprinsley-detaxt">Active</div></td>
+                                <td style='text-align:center; color:#0CAD19; font-weight: 600;'>Active</div></td>
                             <?php } else { ?>
-                                <td class="bg-danger" style='text-align:center; color:#fff; padding: 40px 0;'>Deactive</td>
+                                <td style='text-align:center; color:#C31F1F; font-weight: 600;    '>Deactive</td>
                             <?php } ?>
                             <td style="text-align: center;">
                                 <a href="<?= base_url('station/edit/' . $value->id_sts) ?>" class="btn btn-warning btn-sm" style="background-color: #F26522;">
