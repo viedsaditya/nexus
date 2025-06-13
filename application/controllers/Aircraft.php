@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-// load package composer
+// load package composer 
 require 'vendor/autoload.php';
 // deklarasi package yang ingin digunakan
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
