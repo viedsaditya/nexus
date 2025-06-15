@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>NEXUS</title>
-    <link href="<?php echo base_url('/assets/admin-template/img/nexuslogolightclear.webp'); ?>" style="width: 5px; height: 5px;" rel="shorcut icon">
+    <link href="<?php echo base_url('/assets/admin-template/img/NEXUS_LOGO-07.png'); ?>" style="width: 5px; height: 5px;" rel="shorcut icon">
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url() ?>assets/admin-template/vendor/fontawesome-free-5.15.4-web/css/all.min.css" rel="stylesheet" type="text/css">
