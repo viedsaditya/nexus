@@ -80,6 +80,9 @@ input {
     text-align: center;
 }
 </style>
+<div class="form-group mr-5" style="display: flex; justify-content: left; align-items: left; height: 55px;">
+        <h1 class="h4 text-gray-800 m-0"><?= $title; ?></h1>
+    </div>
 <div class="row">
     <div class="col-lg-6">
         <!-- Data -->
@@ -317,7 +320,7 @@ input {
             icon: 'success',
             title: '<?= $this->session->flashdata('pesan') ?>',
             confirmButtonText: 'OK',
-            confirmButtonColor: '#4e73df',
+            confirmButtonColor: '#F26522',
         })
     <?php } ?>
 
@@ -326,7 +329,7 @@ input {
             icon: 'error',
             title: '<?= $this->session->flashdata('pesanerror') ?>',
             confirmButtonText: 'OK',
-            confirmButtonColor: '#4e73df',
+            confirmButtonColor: '#F26522',
         })
     <?php } ?>
 </script>

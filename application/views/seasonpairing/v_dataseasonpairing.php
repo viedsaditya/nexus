@@ -386,7 +386,7 @@ foreach ($seasonpairing as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_flightno">ARR FLIGHT NO</label>
-                                                <input type="text" name="arr_flightno" value="<?= $value->arr_flightno ?>" class="form-control" placeholder="" id="arr_flightno">
+                                                <input type="text" name="arr_flightno" value="<?= $value->arr_flightno ?>" class="form-control" placeholder="" id="arr_flightno" required>
                                             </div>
                                         </div>
                                         <div class="col">
@@ -398,7 +398,7 @@ foreach ($seasonpairing as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_acreg">ACREG</label>
-                                                <input type="text" name="arr_acreg" value="<?= $value->arr_acreg ?>" class="form-control" placeholder="Enter Aircraft Registration" id="arr_acreg_<?= $value->arr_id ?>">
+                                                <input type="text" name="arr_acreg" value="<?= $value->arr_acreg ?>" class="form-control" placeholder="Enter ACREG" id="arr_acreg_<?= $value->arr_id ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -406,13 +406,13 @@ foreach ($seasonpairing as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_origin">ORI</label>
-                                                <input type="text" name="arr_origin" value="<?= $value->arr_origin ?>" class="form-control" placeholder="" id="arr_origin">
+                                                <input type="text" name="arr_origin" value="<?= $value->arr_origin ?>" class="form-control" placeholder="" id="arr_origin" required>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_destination">DES</label>
-                                                <input type="text" name="arr_destination" value="<?= $value->arr_destination ?>" class="form-control" placeholder="" id="arr_destination">
+                                                <input type="text" name="arr_destination" value="<?= $value->arr_destination ?>" class="form-control" placeholder="" id="arr_destination" required>
                                             </div>
                                         </div>
                                         <div class="col">
@@ -432,13 +432,13 @@ foreach ($seasonpairing as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_sta">STA</label>
-                                                <input type="datetime-local" name="arr_sta" value="<?= $value->arr_sta ?>" class="form-control" placeholder="" id="arr_sta">
+                                                <input type="datetime-local" name="arr_sta" value="<?= $value->arr_sta ?>" class="form-control" placeholder="" id="arr_sta" required>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_eta">ETA</label>
-                                                <input type="datetime-local" name="arr_eta" value="<?= $value->arr_eta ?>" class="form-control" placeholder="" id="arr_eta">
+                                                <input type="datetime-local" name="arr_eta" value="<?= $value->arr_eta ?>" class="form-control" placeholder="" id="arr_eta" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -446,19 +446,19 @@ foreach ($seasonpairing as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_ata">ATA</label>
-                                                <input type="datetime-local" name="arr_ata" value="<?= $value->arr_ata ?>" class="form-control" placeholder="" id="arr_ata">
+                                                <input type="datetime-local" name="arr_ata" value="<?= $value->arr_ata ?>" class="form-control" placeholder="" id="arr_ata" readonly>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_landing">LANDING</label>
-                                                <input type="datetime-local" name="arr_landing" value="<?= $value->arr_landing ?>" class="form-control" placeholder="" id="arr_landing">
+                                                <input type="datetime-local" name="arr_landing" value="<?= $value->arr_landing ?>" class="form-control" placeholder="" id="arr_landing" readonly>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="arr_status">STATUS</label>
-                                        <select name="arr_status" class="form-control" id="arr_status">
+                                        <select name="arr_status" class="form-control" id="arr_status" required>
                                             <option hidden value="<?= $value->arr_status ?>"><?= $value->arr_status ?></option>
                                             <option value="OPERATED">OPERATED</option>
                                             <option value="NON-OPERATED">NON-OPERATED</option>
@@ -483,7 +483,7 @@ foreach ($seasonpairing as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_flightno">DEP FLIGHT NO</label>
-                                                <input type="text" name="dep_flightno" value="<?= $value->dep_flightno ?>" class="form-control" placeholder="" id="dep_flightno">
+                                                <input type="text" name="dep_flightno" value="<?= $value->dep_flightno ?>" class="form-control" placeholder="" id="dep_flightno" required>
                                             </div>
                                         </div>
                                         <div class="col">
@@ -495,7 +495,7 @@ foreach ($seasonpairing as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_acreg">ACREG</label>
-                                                <input type="text" name="dep_acreg" value="<?= $value->dep_acreg ?>" class="form-control" placeholder="Enter Aircraft Registration" id="dep_acreg_<?= $value->arr_id ?>">
+                                                <input type="text" name="dep_acreg" value="<?= $value->dep_acreg ?>" class="form-control" placeholder="Enter ACREG" id="dep_acreg_<?= $value->arr_id ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -503,13 +503,13 @@ foreach ($seasonpairing as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_origin">ORI</label>
-                                                <input type="text" name="dep_origin" value="<?= $value->dep_origin ?>" class="form-control" placeholder="" id="dep_origin">
+                                                <input type="text" name="dep_origin" value="<?= $value->dep_origin ?>" class="form-control" placeholder="" id="dep_origin" required>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_destination">DES</label>
-                                                <input type="text" name="dep_destination" value="<?= $value->dep_destination ?>" class="form-control" placeholder="" id="dep_destination">
+                                                <input type="text" name="dep_destination" value="<?= $value->dep_destination ?>" class="form-control" placeholder="" id="dep_destination" required>
                                             </div>
                                         </div>
                                         <div class="col">
@@ -529,13 +529,13 @@ foreach ($seasonpairing as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_std">STD</label>
-                                                <input type="datetime-local" name="dep_std" value="<?= $value->dep_std ?>" class="form-control" placeholder="" id="dep_std">
+                                                <input type="datetime-local" name="dep_std" value="<?= $value->dep_std ?>" class="form-control" placeholder="" id="dep_std" required>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_etd">ETD</label>
-                                                <input type="datetime-local" name="dep_etd" value="<?= $value->dep_etd ?>" class="form-control" placeholder="" id="dep_etd">
+                                                <input type="datetime-local" name="dep_etd" value="<?= $value->dep_etd ?>" class="form-control" placeholder="" id="dep_etd" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -543,19 +543,19 @@ foreach ($seasonpairing as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_atd">ATD</label>
-                                                <input type="datetime-local" name="dep_atd" value="<?= $value->dep_atd ?>" class="form-control" placeholder="" id="dep_atd">
+                                                <input type="datetime-local" name="dep_atd" value="<?= $value->dep_atd ?>" class="form-control" placeholder="" id="dep_atd" readonly>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_airborne">AIRBORNE</label>
-                                                <input type="datetime-local" name="dep_airborne" value="<?= $value->dep_airborne ?>" class="form-control" placeholder="" id="dep_airborne">
+                                                <input type="datetime-local" name="dep_airborne" value="<?= $value->dep_airborne ?>" class="form-control" placeholder="" id="dep_airborne" readonly>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="dep_status">STATUS</label>
-                                        <select name="dep_status" class="form-control" id="dep_status">
+                                        <select name="dep_status" class="form-control" id="dep_status" required>
                                             <option hidden value="<?= $value->dep_status ?>"><?= $value->dep_status ?></option>
                                             <option value="OPERATED">OPERATED</option>
                                             <option value="NON-OPERATED">NON-OPERATED</option>
@@ -567,8 +567,8 @@ foreach ($seasonpairing as $key => $value) { ?>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-warning" id="btn_submit">SUBMIT</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button>
+                    <button type="submit" class="btn btn-warning" id="btn_submit" style="background-color: #F26522;">SUBMIT</button>
+                    <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button> -->
                 </div>
                 <?php echo form_close(); ?>
             </div>
@@ -617,7 +617,7 @@ foreach ($seasonpairing as $key => $value) { ?>
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="control-label" for="arr_acreg">ACREG</label>
-                                            <input type="text" name="arr_acreg" value="<?= set_value('arr_acreg') ?>" class="form-control" placeholder="Enter Aircraft Registration" id="arr_acreg_new">
+                                            <input type="text" name="arr_acreg" value="<?= set_value('arr_acreg') ?>" class="form-control" placeholder="Enter ACREG" id="arr_acreg_new" required>
                                         </div>
                                     </div>
                                 </div>
@@ -657,7 +657,7 @@ foreach ($seasonpairing as $key => $value) { ?>
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="control-label" for="arr_eta">ETA</label>
-                                            <input type="datetime-local" name="arr_eta" value="<?= set_value('arr_eta') ?>" class="form-control" placeholder="" id="arr_eta">
+                                            <input type="datetime-local" name="arr_eta" value="<?= set_value('arr_eta') ?>" class="form-control" placeholder="" id="arr_eta" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -665,13 +665,13 @@ foreach ($seasonpairing as $key => $value) { ?>
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="control-label" for="arr_ata">ATA</label>
-                                            <input type="datetime-local" name="arr_ata" value="<?= set_value('arr_ata') ?>" class="form-control" placeholder="" id="arr_ata">
+                                            <input type="datetime-local" name="arr_ata" value="<?= set_value('arr_ata') ?>" class="form-control" placeholder="" id="arr_ata" readonly>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="control-label" for="arr_landing">LANDING</label>
-                                            <input type="datetime-local" name="arr_landing" value="<?= set_value('arr_landing') ?>" class="form-control" placeholder="" id="arr_landing">
+                                            <input type="datetime-local" name="arr_landing" value="<?= set_value('arr_landing') ?>" class="form-control" placeholder="" id="arr_landing" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -713,7 +713,7 @@ foreach ($seasonpairing as $key => $value) { ?>
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="control-label" for="dep_acreg">ACREG</label>
-                                            <input type="text" name="dep_acreg" value="<?= set_value('dep_acreg') ?>" class="form-control" placeholder="Enter Aircraft Registration" id="dep_acreg_new">
+                                            <input type="text" name="dep_acreg" value="<?= set_value('dep_acreg') ?>" class="form-control" placeholder="Enter ACREG" id="dep_acreg_new" required>
                                         </div>
                                     </div>
                                 </div>
@@ -753,7 +753,7 @@ foreach ($seasonpairing as $key => $value) { ?>
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="control-label" for="dep_etd">ETD</label>
-                                            <input type="datetime-local" name="dep_etd" value="<?= set_value('dep_etd') ?>" class="form-control" placeholder="" id="dep_etd">
+                                            <input type="datetime-local" name="dep_etd" value="<?= set_value('dep_etd') ?>" class="form-control" placeholder="" id="dep_etd" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -761,13 +761,13 @@ foreach ($seasonpairing as $key => $value) { ?>
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="control-label" for="dep_atd">ATD</label>
-                                            <input type="datetime-local" name="dep_atd" value="<?= set_value('dep_atd') ?>" class="form-control" placeholder="" id="dep_atd">
+                                            <input type="datetime-local" name="dep_atd" value="<?= set_value('dep_atd') ?>" class="form-control" placeholder="" id="dep_atd" readonly>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label class="control-label" for="dep_airborne">AIRBORNE</label>
-                                            <input type="datetime-local" name="dep_airborne" value="<?= set_value('dep_landing') ?>" class="form-control" placeholder="" id="dep_airborne">
+                                            <input type="datetime-local" name="dep_airborne" value="<?= set_value('dep_landing') ?>" class="form-control" placeholder="" id="dep_airborne" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -784,8 +784,8 @@ foreach ($seasonpairing as $key => $value) { ?>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-warning" id="btn_submit">SUBMIT</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button>
+                <button type="submit" class="btn btn-warning" id="btn_submit" style="background-color: #F26522;">SUBMIT</button>
+                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button> -->
             </div>
             <?php echo form_close(); ?>
         </div>
@@ -1035,7 +1035,7 @@ document.getElementById("date_a").onchange = function () {
         icon: 'success',
         title: '<?= $this->session->flashdata('pesan') ?>',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
     })
 <?php } ?>
 
@@ -1044,7 +1044,7 @@ document.getElementById("date_a").onchange = function () {
         icon: 'error',
         title: '<?= $this->session->flashdata('pesanerror') ?>',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
     })
 <?php } ?>
 
@@ -1058,7 +1058,7 @@ $(document).on('click', '#btn_activate', function(e) {
         showCancelButton: true,
         cancelButtonColor: '#e74a3b',
         cancelButtonText: 'CANCEL',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
         confirmButtonText: 'CONFIRM'
         }).then((result) => {
         if (result.isConfirmed) {
@@ -1079,7 +1079,7 @@ $(document).on('click', '#btn_deactivate', function(e) {
         showCancelButton: true,
         cancelButtonColor: '#e74a3b',
         cancelButtonText: 'CANCEL',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
         confirmButtonText: 'CONFIRM'
         }).then((result) => {
         if (result.isConfirmed) {

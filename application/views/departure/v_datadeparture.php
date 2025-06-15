@@ -269,6 +269,7 @@ input {
                             <th>NO</th>
                             <th>DEP FLIGHT</th>
                             <th>PAIR STATUS</th>
+                            <th>STATUS</th>
                             <th>ACTYPE</th>
                             <th>ACREG</th>
                             <th>ORI</th>
@@ -279,8 +280,6 @@ input {
                             <th>ETD</th>
                             <th>ATD</th>
                             <th>AIRBORNE</th>
-                            <th>STATUS</th>
-                            
                         </tr>
                     </thead>
                     <tbody style="white-space: nowrap;">
@@ -294,7 +293,16 @@ input {
                                 </td>
                                 <td><?= $no++; ?></td>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>"><?= $value->dep_flightno ?></td>
-                                <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>"><?= $value->paired ?></td>
+                                <?php if ($value->paired == 'PAIRED') { ?>
+                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>"  style='text-align:center; color:#26A7DF; font-weight: 600;'><?= $value->paired ?></div></td>
+                                <?php } else { ?>
+                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>" style='text-align:center; color:#FBB03B; font-weight: 600;'><?= $value->paired ?></td>
+                                <?php } ?>
+                                <?php if ($value->dep_status == 'OPERATED') { ?>
+                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>"  style='text-align:center; color:#0CAD19; font-weight: 600;'><?= $value->dep_status ?></div></td>
+                                <?php } else { ?>
+                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>" style='text-align:center; color:#E93400; font-weight: 600;'><?= $value->dep_status ?></td>
+                                <?php } ?>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>"><?= $value->dep_actype ?></td>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>"><?= $value->dep_acreg ?></td>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>"><?= $value->dep_origin ?></td>
@@ -305,12 +313,6 @@ input {
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>"><?= $value->dep_etd == NULL ? NULL:strtoupper(date('d M H:i', strtotime($value->dep_etd))) ?></td>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>"><?= $value->dep_atd == NULL ? NULL:strtoupper(date('d M H:i', strtotime($value->dep_atd))) ?></td>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>"><?= $value->dep_airborne ?></td>
-                                <?php if ($value->dep_status == 'OPERATED') { ?>
-                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>"  style='text-align:center; color:#0CAD19; font-weight: 600;'><?= $value->dep_status ?></div></td>
-                                <?php } else { ?>
-                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->dep_id ?>" style='text-align:center; color:#0CAD19; font-weight: 600;'><?= $value->dep_status ?></td>
-                                <?php } ?>
-                                
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -351,7 +353,7 @@ foreach ($departure as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_flightno">DEP FLIGHT NO</label>
-                                                <input type="text" name="dep_flightno" value="<?= $value->dep_flightno ?>" class="form-control" placeholder="" id="dep_flightno_<?= $value->dep_id ?>">
+                                                <input type="text" name="dep_flightno" value="<?= $value->dep_flightno ?>" class="form-control" placeholder="" id="dep_flightno_<?= $value->dep_id ?>" required>
                                                 <input type="hidden" name="dep_flightkey" id="dep_flightkey_<?= $value->dep_id ?>">
                                             </div>
                                         </div>
@@ -376,7 +378,7 @@ foreach ($departure as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_acreg">ACREG</label>
-                                                <input type="text" name="dep_acreg" value="<?= $value->dep_acreg ?>" class="form-control" placeholder="Enter Aircraft Registration" id="dep_acreg_<?= $value->dep_id ?>">
+                                                <input type="text" name="dep_acreg" value="<?= $value->dep_acreg ?>" class="form-control" placeholder="Enter ACREG" id="dep_acreg_<?= $value->dep_id ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -384,13 +386,13 @@ foreach ($departure as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_origin">ORI</label>
-                                                <input type="text" name="dep_origin" value="<?= $value->dep_origin ?>" class="form-control" placeholder="" id="dep_origin">
+                                                <input type="text" name="dep_origin" value="<?= $value->dep_origin ?>" class="form-control" placeholder="" id="dep_origin" required>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_destination">DES</label>
-                                                <input type="text" name="dep_destination" value="<?= $value->dep_destination ?>" class="form-control" placeholder="" id="dep_destination">
+                                                <input type="text" name="dep_destination" value="<?= $value->dep_destination ?>" class="form-control" placeholder="" id="dep_destination" required>
                                             </div>
                                         </div>
                                         <div class="col">
@@ -410,13 +412,13 @@ foreach ($departure as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_std">STD</label>
-                                                <input type="datetime-local" name="dep_std" value="<?= $value->dep_std ?>" class="form-control" placeholder="" id="dep_std">
+                                                <input type="datetime-local" name="dep_std" value="<?= $value->dep_std ?>" class="form-control" placeholder="" id="dep_std" required>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_etd">ETD</label>
-                                                <input type="datetime-local" name="dep_etd" value="<?= $value->dep_etd ?>" class="form-control" placeholder="" id="dep_etd">
+                                                <input type="datetime-local" name="dep_etd" value="<?= $value->dep_etd ?>" class="form-control" placeholder="" id="dep_etd" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -424,19 +426,19 @@ foreach ($departure as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_atd">ATD</label>
-                                                <input type="datetime-local" name="dep_atd" value="<?= $value->dep_atd ?>" class="form-control" placeholder="" id="dep_atd">
+                                                <input type="datetime-local" name="dep_atd" value="<?= $value->dep_atd ?>" class="form-control" placeholder="" id="dep_atd" readonly>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="dep_airborne">AIRBORNE</label>
-                                                <input type="datetime-local" name="dep_airborne" value="<?= $value->dep_airborne ?>" class="form-control" placeholder="" id="dep_airborne">
+                                                <input type="datetime-local" name="dep_airborne" value="<?= $value->dep_airborne ?>" class="form-control" placeholder="" id="dep_airborne" readonly>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="dep_status">STATUS</label>
-                                        <select name="dep_status" class="form-control" id="dep_status">
+                                        <select name="dep_status" class="form-control" id="dep_status" required>
                                             <option hidden value="<?= $value->dep_status ?>"><?= $value->dep_status ?></option>
                                             <option value="OPERATED">OPERATED</option>
                                             <option value="NON-OPERATED">NON-OPERATED</option>
@@ -448,8 +450,8 @@ foreach ($departure as $key => $value) { ?>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-warning" id="btn_submit">SUBMIT</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button>
+                    <button type="submit" class="btn btn-warning" id="btn_submit" style="background-color: #F26522;">SUBMIT</button>
+                    <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button> -->
                 </div>
                 <?php echo form_close(); ?>
             </div>
@@ -666,7 +668,7 @@ document.getElementById("date_a").onchange = function () {
         icon: 'success',
         title: '<?= $this->session->flashdata('pesan') ?>',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
     })
 <?php } ?>
 
@@ -675,7 +677,7 @@ document.getElementById("date_a").onchange = function () {
         icon: 'error',
         title: '<?= $this->session->flashdata('pesanerror') ?>',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
     })
 <?php } ?>
 
@@ -689,7 +691,7 @@ $(document).on('click', '#btn_activate', function(e) {
         showCancelButton: true,
         cancelButtonColor: '#e74a3b',
         cancelButtonText: 'CANCEL',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
         confirmButtonText: 'CONFIRM'
         }).then((result) => {
         if (result.isConfirmed) {
@@ -710,7 +712,7 @@ $(document).on('click', '#btn_deactivate', function(e) {
         showCancelButton: true,
         cancelButtonColor: '#e74a3b',
         cancelButtonText: 'CANCEL',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
         confirmButtonText: 'CONFIRM'
         }).then((result) => {
         if (result.isConfirmed) {

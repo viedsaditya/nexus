@@ -74,6 +74,9 @@ input {
 //     echo '</div>';
 // }
 ?>
+<div class="form-group mr-5" style="display: flex; justify-content: left; align-items: left; height: 55px;">
+        <h1 class="h4 text-gray-800 m-0"><?= $title; ?></h1>
+    </div>
 <!-- DataTales Example -->
 <div class="card shadow mb-4 mt-3">
     <div class="card-header py-3">
@@ -110,7 +113,7 @@ input {
                             <?php if ($value->is_active == 1) { ?>
                                 <td style='text-align:center; color:#0CAD19; font-weight: 600;'>Active</div></td>
                             <?php } else { ?>
-                                <td style='text-align:center; color:#C31F1F; font-weight: 600;    '>Deactive</td>
+                                <td style='text-align:center; color:#C31F1F; font-weight: 600;'>Deactive</td>
                             <?php } ?>
                             <td style="text-align: center;">
                                 <a href="<?= base_url('station/edit/' . $value->id_sts) ?>" class="btn btn-warning btn-sm" style="background-color: #F26522;">
@@ -150,7 +153,7 @@ $(document).ready(function() {
         icon: 'success',
         title: '<?= $this->session->flashdata('pesan') ?>',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
     })
 <?php } ?>
 
@@ -164,7 +167,7 @@ $(document).on('click', '#btn_activate', function(e) {
         showCancelButton: true,
         cancelButtonColor: '#e74a3b',
         cancelButtonText: 'CANCEL',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
         confirmButtonText: 'CONFIRM'
         }).then((result) => {
         if (result.isConfirmed) {
@@ -185,7 +188,7 @@ $(document).on('click', '#btn_deactivate', function(e) {
         showCancelButton: true,
         cancelButtonColor: '#e74a3b',
         cancelButtonText: 'CANCEL',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
         confirmButtonText: 'CONFIRM'
         }).then((result) => {
         if (result.isConfirmed) {

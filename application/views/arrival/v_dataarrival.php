@@ -269,6 +269,7 @@ input {
                             <th>NO</th>
                             <th>ARR FLIGHT</th>
                             <th>PAIR STATUS</th>
+                            <th>STATUS</th>
                             <th>ACTYPE</th>
                             <th>ACREG</th>
                             <th>ORI</th>
@@ -279,7 +280,6 @@ input {
                             <th>ETA</th>
                             <th>ATA</th>
                             <th>LANDING</th>
-                            <th>STATUS</th>
                         </tr>
                     </thead>
                     <tbody style="white-space: nowrap;">
@@ -293,7 +293,16 @@ input {
                                 </td>
                                 <td><?= $no++; ?></td>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>"><?= $value->arr_flightno ?></td>
-                                <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>"><?= $value->paired ?></td>
+                               <?php if ($value->paired == 'PAIRED') { ?>
+                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>"  style='text-align:center; color:#26A7DF; font-weight: 600;'><?= $value->paired ?></div></td>
+                                <?php } else { ?>
+                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>" style='text-align:center; color:#FBB03B; font-weight: 600;'><?= $value->paired ?></td>
+                                <?php } ?>
+                                <?php if ($value->arr_status == 'OPERATED') { ?>
+                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>" style='text-align:center; color:#0CAD19; font-weight: 600;'><?= $value->arr_status ?></div></td>
+                                <?php } else { ?>
+                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>" style='text-align:center; color:#E93400; font-weight: 600;'><?= $value->arr_status ?></td>
+                                <?php } ?>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>"><?= $value->arr_actype ?></td>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>"><?= $value->arr_acreg ?></td>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>"><?= $value->arr_origin ?></td>
@@ -304,11 +313,6 @@ input {
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>"><?= $value->arr_eta == NULL ? NULL:strtoupper(date('d M H:i', strtotime($value->arr_eta))) ?></td>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>"><?= $value->arr_ata == NULL ? NULL:strtoupper(date('d M H:i', strtotime($value->arr_ata))) ?></td>
                                 <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>"><?= $value->arr_landing ?></td>
-                                <?php if ($value->arr_status == 'OPERATED') { ?>
-                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>" style='text-align:center; color:#0CAD19; font-weight: 600;'><?= $value->arr_status ?></div></td>
-                                <?php } else { ?>
-                                    <td data-toggle="modal" data-target="#updateModal<?php echo $value->arr_id ?>" style='text-align:center; color:#0CAD19; font-weight: 600;'><?= $value->arr_status ?></td>
-                                <?php } ?>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -349,7 +353,7 @@ foreach ($arrival as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_flightno">ARR FLIGHT NO</label>
-                                                <input type="text" name="arr_flightno" value="<?= $value->arr_flightno ?>" class="form-control" placeholder="" id="arr_flightno_<?= $value->arr_id ?>">
+                                                <input type="text" name="arr_flightno" value="<?= $value->arr_flightno ?>" class="form-control" placeholder="" id="arr_flightno_<?= $value->arr_id ?>" required>
                                                 <input type="hidden" name="arr_flightkey" id="arr_flightkey_<?= $value->arr_id ?>">
                                             </div>
                                         </div>
@@ -374,7 +378,7 @@ foreach ($arrival as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_acreg">ACREG</label>
-                                                <input type="text" name="arr_acreg" value="<?= $value->arr_acreg ?>" class="form-control" placeholder="Enter Aircraft Registration" id="arr_acreg_<?= $value->arr_id ?>">
+                                                <input type="text" name="arr_acreg" value="<?= $value->arr_acreg ?>" class="form-control" placeholder="Enter ACREG" id="arr_acreg_<?= $value->arr_id ?>" required>
                                             </div>
                                         </div>
                                     </div>
@@ -382,13 +386,13 @@ foreach ($arrival as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_origin">ORI</label>
-                                                <input type="text" name="arr_origin" value="<?= $value->arr_origin ?>" class="form-control" placeholder="" id="arr_origin">
+                                                <input type="text" name="arr_origin" value="<?= $value->arr_origin ?>" class="form-control" placeholder="" id="arr_origin" required>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_destination">DES</label>
-                                                <input type="text" name="arr_destination" value="<?= $value->arr_destination ?>" class="form-control" placeholder="" id="arr_destination">
+                                                <input type="text" name="arr_destination" value="<?= $value->arr_destination ?>" class="form-control" placeholder="" id="arr_destination" required>
                                             </div>
                                         </div>
                                         <div class="col">
@@ -408,13 +412,13 @@ foreach ($arrival as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_sta">STA</label>
-                                                <input type="datetime-local" name="arr_sta" value="<?= $value->arr_sta ?>" class="form-control" placeholder="" id="arr_sta">
+                                                <input type="datetime-local" name="arr_sta" value="<?= $value->arr_sta ?>" class="form-control" placeholder="" id="arr_sta" required>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_eta">ETA</label>
-                                                <input type="datetime-local" name="arr_eta" value="<?= $value->arr_eta ?>" class="form-control" placeholder="" id="arr_eta">
+                                                <input type="datetime-local" name="arr_eta" value="<?= $value->arr_eta ?>" class="form-control" placeholder="" id="arr_eta" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -422,19 +426,19 @@ foreach ($arrival as $key => $value) { ?>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_ata">ATA</label>
-                                                <input type="datetime-local" name="arr_ata" value="<?= $value->arr_ata ?>" class="form-control" placeholder="" id="arr_ata">
+                                                <input type="datetime-local" name="arr_ata" value="<?= $value->arr_ata ?>" class="form-control" placeholder="" id="arr_ata" readonly>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
                                                 <label class="control-label" for="arr_landing">LANDING</label>
-                                                <input type="datetime-local" name="arr_landing" value="<?= $value->arr_landing ?>" class="form-control" placeholder="" id="arr_landing">
+                                                <input type="datetime-local" name="arr_landing" value="<?= $value->arr_landing ?>" class="form-control" placeholder="" id="arr_landing" readonly>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="arr_status">STATUS</label>
-                                        <select name="arr_status" class="form-control" id="arr_status">
+                                        <select name="arr_status" class="form-control" id="arr_status" required>
                                             <option hidden value="<?= $value->arr_status ?>"><?= $value->arr_status ?></option>
                                             <option value="OPERATED">OPERATED</option>
                                             <option value="NON-OPERATED">NON-OPERATED</option>
@@ -446,8 +450,8 @@ foreach ($arrival as $key => $value) { ?>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-warning" id="btn_submit">SUBMIT</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button>
+                    <button type="submit" class="btn btn-warning" id="btn_submit" style="background-color: #F26522;">SUBMIT</button>
+                    <!-- <button type="button" class="btn btn-" data-dismiss="modal">CLOSE</button> -->
                 </div>
                 <?php echo form_close(); ?>
             </div>
@@ -664,7 +668,7 @@ document.getElementById("date_a").onchange = function () {
         icon: 'success',
         title: '<?= $this->session->flashdata('pesan') ?>',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
     })
 <?php } ?>
 
@@ -673,7 +677,7 @@ document.getElementById("date_a").onchange = function () {
         icon: 'error',
         title: '<?= $this->session->flashdata('pesanerror') ?>',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
     })
 <?php } ?>
 
@@ -687,7 +691,7 @@ $(document).on('click', '#btn_activate', function(e) {
         showCancelButton: true,
         cancelButtonColor: '#e74a3b',
         cancelButtonText: 'CANCEL',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
         confirmButtonText: 'CONFIRM'
         }).then((result) => {
         if (result.isConfirmed) {
@@ -708,7 +712,7 @@ $(document).on('click', '#btn_deactivate', function(e) {
         showCancelButton: true,
         cancelButtonColor: '#e74a3b',
         cancelButtonText: 'CANCEL',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
         confirmButtonText: 'CONFIRM'
         }).then((result) => {
         if (result.isConfirmed) {

@@ -69,7 +69,9 @@ input {
 //     echo '</div>';
 // }
 ?>
-
+<div class="form-group mr-5" style="display: flex; justify-content: left; align-items: left; height: 55px;">
+        <h1 class="h4 text-gray-800 m-0"><?= $title; ?></h1>
+    </div>
 <div class="row mt-3">
     <div class="col-lg-12">
         <div class="card shadow mb-4 mt-3">
@@ -113,9 +115,9 @@ input {
                                     <td><?= $value->code_role ?></td>
                                     <td style="text-align: center;"><img src=<?= base_url('assets/upload/foto-user/' . $value->foto) ?> alt="Foto" width="120px" height="80px"></img></td>
                                     <?php if ($value->is_active == 1) { ?>
-                                        <td class="bg-success" style='text-align:center; color:#fff; padding: 40px 0;'>Active</div></td>
+                                        <td style='text-align:center; color:#0CAD19; font-weight: 600;'>Active</div></td>
                                     <?php } else { ?>
-                                        <td class="bg-danger" style='text-align:center; color:#fff; padding: 40px 0;'>Deactive</td>
+                                        <td style='text-align:center; color:#C31F1F; font-weight: 600;'>Deactive</td>
                                     <?php } ?>
 
                                     <td style="text-align: center; width: 80px;">
@@ -125,17 +127,17 @@ input {
 
                                         <br>
                                         <?php if($value->is_active==0) { ?>
-                                            <a href="<?= base_url('user/activate/' . $value->id_usr) ?>" class="btn btn-danger btn-sm mb-1" id="btn_activate" title="Activate Data">
+                                            <a href="<?= base_url('user/activate/' . $value->id_usr) ?>" class="btn btn-danger btn-sm" id="btn_activate" title="Activate Data">
                                                 <i class="fas fa-eye-slash"></i>
                                             </a>
                                         <?php } else if ($value->is_active==1) { ?>
-                                            <a href="<?= base_url('user/deactivate/' . $value->id_usr) ?>" class="btn btn-success btn-sm mb-1" id="btn_deactivate" title="Deactive Data">
+                                            <a href="<?= base_url('user/deactivate/' . $value->id_usr) ?>" class="btn btn-success btn-sm" id="btn_deactivate" title="Deactivate Data">
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                         <?php } ?>
 
                                         <br>
-                                        <button type="button" class="btn btn-danger btn-sm" style="background-color: #F26522;" data-toggle="modal" data-target="#resetpasswordModal<?php echo $value->id_usr ?>" title="Reset Password">
+                                        <button type="button" class="btn btn-danger btn-sm mt-1" style="background-color: #F26522;" data-toggle="modal" data-target="#resetpasswordModal<?php echo $value->id_usr ?>" title="Reset Password">
                                             <i class="fas fa-lock" style="padding: 0px 2px 0px 2px;"></i>
                                         </button>
                                     </td>
@@ -195,7 +197,7 @@ $(document).ready(function() {
         icon: 'success',
         title: '<?= $this->session->flashdata('pesan') ?>',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
     })
 <?php } ?>
 
@@ -204,7 +206,7 @@ $(document).ready(function() {
         icon: 'error',
         title: '<?= $this->session->flashdata('pesanerror') ?>',
         confirmButtonText: 'OK',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
     })
 <?php } ?>
 
@@ -218,7 +220,7 @@ $(document).on('click', '#btn_activate', function(e) {
         showCancelButton: true,
         cancelButtonColor: '#e74a3b',
         cancelButtonText: 'CANCEL',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
         confirmButtonText: 'CONFIRM'
         }).then((result) => {
         if (result.isConfirmed) {
@@ -239,7 +241,7 @@ $(document).on('click', '#btn_deactivate', function(e) {
         showCancelButton: true,
         cancelButtonColor: '#e74a3b',
         cancelButtonText: 'CANCEL',
-        confirmButtonColor: '#4e73df',
+        confirmButtonColor: '#F26522',
         confirmButtonText: 'CONFIRM'
         }).then((result) => {
         if (result.isConfirmed) {
